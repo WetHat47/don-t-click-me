@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xXRenq's Website</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-image: url('https://wallpapers.com/images/hd/battlefield-4-city-dymglvivh8x5clvv.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .overlay {
+            position: absolute;
+            inset: 0;
+            /* Jaśniejsze tło – zmniejszamy przyciemnienie */
+            background: linear-gradient(to bottom, 
+                rgba(0,0,0,0.55) 0%, 
+                rgba(0,8,30,0.68) 100%);
+            z-index: 1;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .button {
+            position: relative;
+            padding: 16px 40px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: #d0d8ff;
+            background: rgba(15, 15, 35, 0.7);
+            border: 2px solid #2a4066;
+            border-radius: 6px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+            min-width: 240px;
+            text-align: center;
+            backdrop-filter: blur(2px);
+        }
+
+        .button:hover {
+            color: #ffffff;
+            border-color: #4a7cff;
+            box-shadow: 0 0 30px rgba(74, 124, 255, 0.5),
+                        inset 0 0 20px rgba(74, 124, 255, 0.15);
+            transform: translateY(-3px);
+            animation: pulse-glow 1.8s infinite ease-in-out;
+        }
+
+        .button::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 2px;
+            background: linear-gradient(90deg, transparent, #5a8aff, transparent);
+            transition: 0.7s;
+        }
+
+        .button:hover::before {
+            left: 100%;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 15px rgba(74, 124, 255, 0.3); }
+            50%      { box-shadow: 0 0 35px rgba(74, 124, 255, 0.7); }
+        }
+
+        .button span {
+            position: relative;
+            display: inline-block;
+        }
+
+        .button:hover span {
+            animation: glitch 0.4s linear infinite alternate;
+        }
+
+        @keyframes glitch {
+            0%   { transform: translate(0); }
+            20%  { transform: translate(-2px, 2px); }
+            40%  { transform: translate(2px, -2px); }
+            60%  { transform: translate(-1px, 1px); }
+            80%  { transform: translate(1px, -1px); }
+            100% { transform: translate(0); }
+        }
+
+        .button::after {
+            content: '>';
+            position: absolute;
+            right: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0.4;
+            font-size: 1.1rem;
+            transition: all 0.4s;
+        }
+
+        .button:hover::after {
+            right: 14px;
+            opacity: 0.9;
+            color: #8ab4ff;
+        }
+
+        /* Responsywność */
+        @media (max-width: 480px) {
+            .button {
+                padding: 12px 20px;
+                font-size: 1.1rem;
+                min-width: 80%;
+                letter-spacing: 1px;
+            }
+            .container {
+                gap: 16px;
+                padding: 0 15px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .button {
+                font-size: 1rem;
+                padding: 10px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+
+    <div class="container">
+        <a href="https://www.instagram.com/siemaelopozdro69?igsh=MWxzeGRwdDNoZ3ltcQ==" class="button"><span>Instagram</span></a>
+        <a href="https://gametools.network/stats/ps4/name/chodliwy-placek1?game=bf4" class="button"><span>BF4 Stats</span></a>
+        <a href="https://r6.tracker.network/r6siege/profile/psn/chodliwy-placek1/overview" class="button"><span>R6 Stats</span></a>
+        <a href="https://sites.google.com/view/xxrenq-mod-downloader/strona-g%C5%82%C3%B3wna" class="button"><span>Mod Website</span></a>
+    </div>
+</body>
+</html>
